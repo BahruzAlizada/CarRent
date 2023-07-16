@@ -1,0 +1,8 @@
+﻿@model List<Logo>
+
+@foreach (Logo logo in Model)
+{
+    <div class="bg-light p-4">
+        <img src="img/@logo.Image" alt="">
+    </div>
+}
