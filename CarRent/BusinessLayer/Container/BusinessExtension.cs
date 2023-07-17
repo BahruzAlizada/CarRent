@@ -29,6 +29,24 @@ namespace BusinessLayer.Container
 
             services.AddScoped<ISocialMediaService,SocialMediaManager>();
             services.AddScoped<ISocialMediaDal, EFSocialMediaDal>();
+
+            services.AddScoped<IBanService, BanManager>();
+            services.AddScoped<IBanDal, EFBanDal>();
+
+            services.AddScoped<IMarkaService,MarkaManager>();
+            services.AddScoped<IMarkaDal,EFMarkaDal>();
+
+            services.AddScoped<ICarService, CarManager>();
+            services.AddScoped<ICarDal, EFCarDal>();
+
+            services.AddScoped<IContactFormService, ContactFormManager>();
+            services.AddScoped<IContactFormDal, EFContactFormDal>();
+
+            services.AddScoped<IContactInfoService, ContactInfoManager>();
+            services.AddScoped<IContactInfoDal,EFContactInfoDal>();
+
+            services.AddScoped<IServiceService, ServiceManager>();
+            services.AddScoped<IServiceDal, EFServiceDal>();
         }
     }
 }

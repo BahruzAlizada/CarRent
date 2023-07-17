@@ -1,0 +1,42 @@
+﻿@model List<Service>
+
+@{
+    int count = 0;
+}
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header">
+    <h1 class="display-3 text-uppercase text-white mb-3">Service</h1>
+    <div class="d-inline-flex text-white">
+        <h6 class="text-uppercase m-0"><a class="text-white" asp-controller="Home" asp-action="Index">Home</a></h6>
+        <h6 class="text-body m-0 px-3">/</h6>
+        <h6 class="text-uppercase text-body m-0">Service</h6>
+    </div>
+</div>
+<!-- Page Header Start -->
+
+<!-- Services Start -->
+<div class="container-fluid py-5">
+    <div class="container pt-5 pb-3">
+        <h1 class="display-4 text-uppercase text-center mb-5">Our Services</h1>
+        <div class="row">
+            @foreach (Service item in Model)
+            {
+                count++;
+                <div class="col-lg-4 col-md-6 mb-2">
+                    <div class="service-item d-flex flex-column justify-content-center px-4 mb-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center justify-content-center bg-primary ml-n4" style="width: 80px; height: 80px;">
+                               @Html.Raw(item.Icon)
+                            </div>
+                            <h1 class="display-2 text-white mt-n2 m-0">@count</h1>
+                        </div>
+                        <h4 class="text-uppercase mb-3">@item.Title</h4>
+                        <p class="m-0">@item.Description</p>
+                    </div>
+                </div>
+            }   
+        </div>
+    </div>
+</div>
+<!-- Services End -->

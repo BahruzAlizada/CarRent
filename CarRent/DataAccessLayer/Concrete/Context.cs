@@ -29,5 +29,9 @@ namespace DataAccessLayer.Concrete
         public DbSet<CarImage> CarImages { get; set; }
         public DbSet<Customer> Customers { get; set; } 
         public DbSet <CarCustomer> CarCustomers { get; set; }
+
+        public DbSet<ContactForm> ContactForms { get; set; }
+        public DbSet<ContactInfo> ContactInfos { get; set; }
+        public DbSet<Service> Services { get; set; }    
     }
 }
