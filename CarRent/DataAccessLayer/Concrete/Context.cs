@@ -21,17 +21,23 @@ namespace DataAccessLayer.Concrete
         public DbSet<Logo> Logos { get; set; }
         public DbSet<Bio> Bios { get; set; }
 
-        public DbSet<Marka> Markas { get; set; }
-        public DbSet<Ban> Bans { get; set; }
-        public DbSet<Car> Cars { get; set; }
-        public DbSet<CarDetail> CarDetails { get; set; }
-        public DbSet<Image> Images { get; set; }
-        public DbSet<CarImage> CarImages { get; set; }
-        public DbSet<Customer> Customers { get; set; } 
-        public DbSet <CarCustomer> CarCustomers { get; set; }
 
         public DbSet<ContactForm> ContactForms { get; set; }
         public DbSet<ContactInfo> ContactInfos { get; set; }
-        public DbSet<Service> Services { get; set; }    
+        public DbSet<Service> Services { get; set; }
+
+
+        public DbSet<Marka> Markas { get; set; }
+        public DbSet<Ban> Bans { get; set; }
+        public DbSet<Car> Cars { get; set; }
+        public DbSet<CarMotor> CarMotors { get; set; }
+        public DbSet<CarYear> CarYears { get; set; }
+        public DbSet<CarColor> CarColors { get; set; }
+        public DbSet<CarDetail> CarDetails { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<CarCustomer> CarCustomers { get; set; }
+        public DbSet<CarImages> CarImagess { get; set; }
+        public DbSet<CarCountryMarket> CarCountryMarkets { get; set; }
+        
     }
 }

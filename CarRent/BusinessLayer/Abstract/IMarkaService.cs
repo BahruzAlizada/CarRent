@@ -9,5 +9,6 @@ namespace BusinessLayer.Abstract
 {
     public interface IMarkaService : IGenericService<Marka>
     {
+        Task TActivity(int? id);
     }
 }

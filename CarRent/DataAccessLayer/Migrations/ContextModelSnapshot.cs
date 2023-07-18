@@ -177,7 +177,7 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("CarDetails");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.CarImage", b =>
+            modelBuilder.Entity("EntityLayer.Concrete.CarImages", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -187,16 +187,29 @@ namespace DataAccessLayer.Migrations
                     b.Property<int>("CarId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ImageId")
-                        .HasColumnType("int");
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CarId");
 
-                    b.HasIndex("ImageId");
+                    b.ToTable("CarImagess");
+                });
 
-                    b.ToTable("CarImages");
+            modelBuilder.Entity("EntityLayer.Concrete.CarYear", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CarYears");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.ContactForm", b =>
@@ -288,21 +301,6 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Customers");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.Image", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Images")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Logo", b =>
@@ -462,7 +460,7 @@ namespace DataAccessLayer.Migrations
                     b.Navigation("Car");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.CarImage", b =>
+            modelBuilder.Entity("EntityLayer.Concrete.CarImages", b =>
                 {
                     b.HasOne("EntityLayer.Concrete.Car", "Car")
                         .WithMany("CarImages")
@@ -470,15 +468,7 @@ namespace DataAccessLayer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EntityLayer.Concrete.Image", "Image")
-                        .WithMany("CarImages")
-                        .HasForeignKey("ImageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Car");
-
-                    b.Navigation("Image");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Ban", b =>
@@ -498,11 +488,6 @@ namespace DataAccessLayer.Migrations
             modelBuilder.Entity("EntityLayer.Concrete.Customer", b =>
                 {
                     b.Navigation("CarCustomers");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.Image", b =>
-                {
-                    b.Navigation("CarImages");
                 });
 #pragma warning restore 612, 618
         }

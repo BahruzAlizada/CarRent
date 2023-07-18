@@ -9,5 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IMarkaDal : IGenericDal<Marka>
     {
+        Task Activity(int? id);
     }
 }

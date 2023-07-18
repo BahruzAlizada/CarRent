@@ -17,15 +17,15 @@ namespace DataAccessLayer.EntityFramework
         {
             using var c = new Context();
             return await c.Set<Car>().Include(x => x.CarDetail).
-                Include(x=>x.Marka).Include(x=>x.Ban).Include(x=>x.CarImages).
-                ThenInclude(x=>x.Image).FirstOrDefaultAsync(x=>x.Id==id);
+                Include(x=>x.Marka).Include(x=>x.Ban).Include(x=>x.CarImages)
+                .FirstOrDefaultAsync(x=>x.Id==id);
         }
 
         public async Task<List<Car>> GetCarListAsync()
         {
             using var c= new Context();
-            return await c.Set<Car>().Where(x=>!x.IsDeactive).Include(x => x.Ban).Include(x => x.Marka).
-                Include(x => x.CarImages).ThenInclude(x => x.Image).OrderByDescending(x => x.Id).ToListAsync();
+            return await c.Set<Car>().Include(x => x.Ban).Include(x => x.Marka).
+                Include(x => x.CarImages).OrderByDescending(x => x.Id).ToListAsync();
         }
     }
 }

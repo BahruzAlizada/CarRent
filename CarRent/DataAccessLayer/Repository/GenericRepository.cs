@@ -34,6 +34,7 @@ namespace DataAccessLayer.Repository
         public async Task UpdateAsync(T item)
         {
             using var c = new Context();
+            c.Update(item);
             await c.SaveChangesAsync();
         }
 

@@ -10,6 +10,10 @@ namespace EntityLayer.Concrete
     {
         public int Id { get; set; }
         public string MarkaName { get; set; }
+        public bool IsMain { get; set; }
+        public List<Marka> Children { get; set; }
+        public Marka Parent { get; set; }
+        public int ParentId { get; set; }
         public List<Car> Cars;
         public bool IsDeactive { get; set; }
     }

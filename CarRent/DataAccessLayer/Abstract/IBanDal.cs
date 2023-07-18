@@ -9,5 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IBanDal : IGenericDal<Ban>
     {
+        Task Activity(int? id);
     }
 }

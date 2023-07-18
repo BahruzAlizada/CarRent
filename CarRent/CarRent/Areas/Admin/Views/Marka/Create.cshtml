@@ -1,0 +1,24 @@
+﻿@model Marka
+
+<div class="row">
+    <div class="col-8">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Marka</h5>
+                
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="mb-3 form-group">
+                        <label asp-for="MarkaName" class="form-label">Marka Name</label>
+                        <input asp-for="MarkaName" class="form-control"/>
+                    </div>
+                  
+                    
+                    <button type="submit" class="btn btn-success">Submit</button>
+                    <a asp-action="Index" class="btn btn-secondary">Go Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

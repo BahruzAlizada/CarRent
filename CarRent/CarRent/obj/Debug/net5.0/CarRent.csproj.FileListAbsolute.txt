@@ -169,3 +169,16 @@ C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Ra
 C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Views\Contact\Index.cshtml.g.cs
 C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Views\Shared\Components\Contact\Default.cshtml.g.cs
 C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Views\Service\Index.cshtml.g.cs
+C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Areas\Admin\Views\Dashboard\Index.cshtml.g.cs
+C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
+C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_AdminLayout.cshtml.g.cs
+C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
+C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Areas\Admin\Views\Marka\Index.cshtml.g.cs
+C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Areas\Admin\Views\Marka\Create.cshtml.g.cs
+C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Areas\Admin\Views\Marka\Update.cshtml.g.cs
+C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Areas\Admin\Views\Ban\Index.cshtml.g.cs
+C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Areas\Admin\Views\Ban\Create.cshtml.g.cs
+C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Areas\Admin\Views\Ban\Update.cshtml.g.cs
+C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Areas\Admin\Views\Car\Index.cshtml.g.cs
+C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Areas\Admin\Views\Car\Create.cshtml.g.cs

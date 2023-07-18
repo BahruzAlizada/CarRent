@@ -9,5 +9,6 @@ namespace BusinessLayer.Abstract
 {
     public interface IBanService : IGenericService<Ban>
     {
+        Task TActivity(int? id);
     }
 }

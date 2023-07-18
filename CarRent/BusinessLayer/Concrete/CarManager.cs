@@ -16,9 +16,9 @@ namespace BusinessLayer.Concrete
         {
             _carDal = carDal;
         }
-        public Task TAddAsync(Car item)
+        public async Task TAddAsync(Car item)
         {
-            throw new NotImplementedException();
+            await _carDal.InsertAsync(item);
         }
 
         public Task<Car> TCarDetailAsync(int? id)

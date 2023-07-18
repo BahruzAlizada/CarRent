@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    public class Image
+    internal class Advantage
     {
-        public int Id { get; set; }
-        public string Images { get; set; }
-        public List<CarImage> CarImages { get; set; }
     }
 }

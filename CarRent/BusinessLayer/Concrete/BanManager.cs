@@ -16,9 +16,15 @@ namespace BusinessLayer.Concrete
         {
             _banDal = banDal;
         }
-        public Task TAddAsync(Ban item)
+
+        public async Task TActivity(int? id)
         {
-            throw new NotImplementedException();
+            await _banDal.Activity(id);
+        }
+
+        public async Task TAddAsync(Ban item)
+        {
+            await _banDal.InsertAsync(item);
         }
 
         public void TDelete(Ban item)
@@ -26,14 +32,14 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public Task<Ban> TGetByIdAsync(int id)
+        public async Task<Ban> TGetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _banDal.GetByIdAsync(id);
         }
 
-        public Task<List<Ban>> TGetListAsync()
+        public async Task<List<Ban>> TGetListAsync()
         {
-            throw new NotImplementedException();
+            return await _banDal.GetListAsync();
         }
 
         public Task<Ban> TGetOneNoFilterAsync()
@@ -41,9 +47,9 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public Task TUpdateAsync(Ban item)
+        public async Task TUpdateAsync(Ban item)
         {
-            throw new NotImplementedException();
+            await _banDal.UpdateAsync(item);
         }
     }
 }
