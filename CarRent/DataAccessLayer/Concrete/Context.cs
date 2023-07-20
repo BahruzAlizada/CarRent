@@ -25,19 +25,23 @@ namespace DataAccessLayer.Concrete
         public DbSet<ContactForm> ContactForms { get; set; }
         public DbSet<ContactInfo> ContactInfos { get; set; }
         public DbSet<Service> Services { get; set; }
+        public DbSet<Newsletter> Newsletters { get; set; }
 
 
-        public DbSet<Marka> Markas { get; set; }
-        public DbSet<Ban> Bans { get; set; }
-        public DbSet<Car> Cars { get; set; }
-        public DbSet<CarMotor> CarMotors { get; set; }
-        public DbSet<CarYear> CarYears { get; set; }
-        public DbSet<CarColor> CarColors { get; set; }
-        public DbSet<CarDetail> CarDetails { get; set; }
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<CarCustomer> CarCustomers { get; set; }
-        public DbSet<CarImages> CarImagess { get; set; }
-        public DbSet<CarCountryMarket> CarCountryMarkets { get; set; }
-        
+        public DbSet<TransportMarka> TransportMarkas { get; set; }
+        public DbSet<TransportBan> TransportBans { get; set; }
+        public DbSet<Transport> Transports { get; set; }
+        public DbSet<TransportMotor> TransportMotors { get; set; }
+        public DbSet<TransportYear> TransportYears { get; set; }
+        public DbSet<TransportColor> TransportColors { get; set; }
+        public DbSet<TransportDetail> TransportDetails { get; set; }
+        public DbSet<TransportImages> TransportImages { get; set; }
+        public DbSet<TransportCountryMarket> TransportCountryMarkets { get; set; }
+        public DbSet<TransportEngine> TransportEngines { get; set; }
+        public DbSet<Advantage> Advantages { get; set; }
+        public DbSet<TransportAdvantage> TransportAdvantages { get; set; }
+        public DbSet<TransportNumberSeats> TransportNumberSeats { get; set; }
+
     }
+
 }

@@ -180,5 +180,6 @@ C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Ra
 C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Areas\Admin\Views\Ban\Index.cshtml.g.cs
 C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Areas\Admin\Views\Ban\Create.cshtml.g.cs
 C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Areas\Admin\Views\Ban\Update.cshtml.g.cs
-C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Areas\Admin\Views\Car\Index.cshtml.g.cs
-C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Areas\Admin\Views\Car\Create.cshtml.g.cs
+C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Areas\Admin\Views\Transport\Create.cshtml.g.cs
+C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Areas\Admin\Views\Transport\Index.cshtml.g.cs
+C:\Users\Esma\Desktop\GitHub Project\CarRent\CarRent\CarRent\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_loadModelPartial.cshtml.g.cs

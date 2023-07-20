@@ -40,7 +40,7 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("Abouts");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.Ban", b =>
+            modelBuilder.Entity("EntityLayer.Concrete.Advantage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -55,7 +55,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Bans");
+                    b.ToTable("Advantages");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Bio", b =>
@@ -83,133 +83,6 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Bios");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.Car", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("Automathic")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("BanId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Benzin")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Featured")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeactive")
-                        .HasColumnType("bit");
-
-                    b.Property<double>("KM")
-                        .HasColumnType("float");
-
-                    b.Property<int>("MarkaId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
-
-                    b.Property<bool>("VIP")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("Year")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BanId");
-
-                    b.HasIndex("MarkaId");
-
-                    b.ToTable("Cars");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.CarCustomer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CarId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CarId");
-
-                    b.HasIndex("CustomerId");
-
-                    b.ToTable("CarCustomers");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.CarDetail", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CarId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CarId")
-                        .IsUnique();
-
-                    b.ToTable("CarDetails");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.CarImages", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CarId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CarId");
-
-                    b.ToTable("CarImagess");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.CarYear", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Year")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CarYears");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.ContactForm", b =>
@@ -267,42 +140,6 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("ContactInfos");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.Customer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("End")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SpecialRequest")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Start")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Customers");
-                });
-
             modelBuilder.Entity("EntityLayer.Concrete.Logo", b =>
                 {
                     b.Property<int>("Id")
@@ -321,22 +158,19 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("Logos");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.Marka", b =>
+            modelBuilder.Entity("EntityLayer.Concrete.Newsletter", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("IsDeactive")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("MarkaName")
+                    b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Markas");
+                    b.ToTable("Newsletters");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Service", b =>
@@ -411,83 +245,465 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("SocialMedia");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.Car", b =>
+            modelBuilder.Entity("EntityLayer.Concrete.Transport", b =>
                 {
-                    b.HasOne("EntityLayer.Concrete.Ban", "Ban")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Automathic")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("CarNumberSeatId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CountryMarketId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("DailyPrice")
+                        .HasColumnType("float");
+
+                    b.Property<bool>("Featured")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsAccident")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeactive")
+                        .HasColumnType("bit");
+
+                    b.Property<double>("KM")
+                        .HasColumnType("float");
+
+                    b.Property<int>("TransportBanId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TransportColorId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TransportDetailId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TransportEngineId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TransportMarkaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TransportMotorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TransportYearId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("VIP")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarNumberSeatId");
+
+                    b.HasIndex("CountryMarketId");
+
+                    b.HasIndex("TransportBanId");
+
+                    b.HasIndex("TransportColorId");
+
+                    b.HasIndex("TransportDetailId");
+
+                    b.HasIndex("TransportEngineId");
+
+                    b.HasIndex("TransportMarkaId");
+
+                    b.HasIndex("TransportMotorId");
+
+                    b.HasIndex("TransportYearId");
+
+                    b.ToTable("Transports");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.TransportAdvantage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AdvantageId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TransportId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdvantageId");
+
+                    b.HasIndex("TransportId");
+
+                    b.ToTable("TransportAdvantages");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.TransportBan", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsDeactive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TransportBans");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.TransportColor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Color")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeactive")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TransportColors");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.TransportCountryMarket", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TransportCountryMarkets");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.TransportDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TransportId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TransportId");
+
+                    b.ToTable("TransportDetails");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.TransportEngine", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsDeactive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TransportEngines");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.TransportImages", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TransportId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TransportId");
+
+                    b.ToTable("TransportImages");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.TransportMarka", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsDeactive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsMain")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("MarkaName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentId");
+
+                    b.ToTable("TransportMarkas");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.TransportMotor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsDeactive")
+                        .HasColumnType("bit");
+
+                    b.Property<double>("Motor")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TransportMotors");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.TransportNumberSeats", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("SeatNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TransportNumberSeats");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.TransportYear", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TransportYears");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.Transport", b =>
+                {
+                    b.HasOne("EntityLayer.Concrete.TransportNumberSeats", "CarNumberSeat")
                         .WithMany("Cars")
-                        .HasForeignKey("BanId")
+                        .HasForeignKey("CarNumberSeatId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EntityLayer.Concrete.Marka", "Marka")
+                    b.HasOne("EntityLayer.Concrete.TransportCountryMarket", "CountryMarket")
+                        .WithMany("Cars")
+                        .HasForeignKey("CountryMarketId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EntityLayer.Concrete.TransportBan", "TransportBan")
+                        .WithMany("Transports")
+                        .HasForeignKey("TransportBanId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EntityLayer.Concrete.TransportColor", "TransportColor")
+                        .WithMany("Transports")
+                        .HasForeignKey("TransportColorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EntityLayer.Concrete.Transport", "TransportDetail")
                         .WithMany()
-                        .HasForeignKey("MarkaId")
+                        .HasForeignKey("TransportDetailId");
+
+                    b.HasOne("EntityLayer.Concrete.TransportEngine", "TransportEngine")
+                        .WithMany("Cars")
+                        .HasForeignKey("TransportEngineId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Ban");
+                    b.HasOne("EntityLayer.Concrete.TransportMarka", "TransportMarka")
+                        .WithMany()
+                        .HasForeignKey("TransportMarkaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Marka");
+                    b.HasOne("EntityLayer.Concrete.TransportMotor", "TransportMotor")
+                        .WithMany("Transports")
+                        .HasForeignKey("TransportMotorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EntityLayer.Concrete.TransportYear", "TransportYear")
+                        .WithMany("Transports")
+                        .HasForeignKey("TransportYearId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CarNumberSeat");
+
+                    b.Navigation("CountryMarket");
+
+                    b.Navigation("TransportBan");
+
+                    b.Navigation("TransportColor");
+
+                    b.Navigation("TransportDetail");
+
+                    b.Navigation("TransportEngine");
+
+                    b.Navigation("TransportMarka");
+
+                    b.Navigation("TransportMotor");
+
+                    b.Navigation("TransportYear");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.CarCustomer", b =>
+            modelBuilder.Entity("EntityLayer.Concrete.TransportAdvantage", b =>
                 {
-                    b.HasOne("EntityLayer.Concrete.Car", "Car")
-                        .WithMany("CarCustomers")
-                        .HasForeignKey("CarId")
+                    b.HasOne("EntityLayer.Concrete.Advantage", "Advantage")
+                        .WithMany("CarAdvantages")
+                        .HasForeignKey("AdvantageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EntityLayer.Concrete.Customer", "Customer")
-                        .WithMany("CarCustomers")
-                        .HasForeignKey("CustomerId")
+                    b.HasOne("EntityLayer.Concrete.Transport", "Transport")
+                        .WithMany("TransportAdvantages")
+                        .HasForeignKey("TransportId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Car");
+                    b.Navigation("Advantage");
 
-                    b.Navigation("Customer");
+                    b.Navigation("Transport");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.CarDetail", b =>
+            modelBuilder.Entity("EntityLayer.Concrete.TransportDetail", b =>
                 {
-                    b.HasOne("EntityLayer.Concrete.Car", "Car")
-                        .WithOne("CarDetail")
-                        .HasForeignKey("EntityLayer.Concrete.CarDetail", "CarId")
+                    b.HasOne("EntityLayer.Concrete.Transport", "Transport")
+                        .WithMany()
+                        .HasForeignKey("TransportId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Car");
+                    b.Navigation("Transport");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.CarImages", b =>
+            modelBuilder.Entity("EntityLayer.Concrete.TransportImages", b =>
                 {
-                    b.HasOne("EntityLayer.Concrete.Car", "Car")
-                        .WithMany("CarImages")
-                        .HasForeignKey("CarId")
+                    b.HasOne("EntityLayer.Concrete.Transport", "Transport")
+                        .WithMany("TransportImages")
+                        .HasForeignKey("TransportId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Car");
+                    b.Navigation("Transport");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.Ban", b =>
+            modelBuilder.Entity("EntityLayer.Concrete.TransportMarka", b =>
+                {
+                    b.HasOne("EntityLayer.Concrete.TransportMarka", "Parent")
+                        .WithMany("Children")
+                        .HasForeignKey("ParentId");
+
+                    b.Navigation("Parent");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.Advantage", b =>
+                {
+                    b.Navigation("CarAdvantages");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.Transport", b =>
+                {
+                    b.Navigation("TransportAdvantages");
+
+                    b.Navigation("TransportImages");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.TransportBan", b =>
+                {
+                    b.Navigation("Transports");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.TransportColor", b =>
+                {
+                    b.Navigation("Transports");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.TransportCountryMarket", b =>
                 {
                     b.Navigation("Cars");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.Car", b =>
+            modelBuilder.Entity("EntityLayer.Concrete.TransportEngine", b =>
                 {
-                    b.Navigation("CarCustomers");
-
-                    b.Navigation("CarDetail");
-
-                    b.Navigation("CarImages");
+                    b.Navigation("Cars");
                 });
 
-            modelBuilder.Entity("EntityLayer.Concrete.Customer", b =>
+            modelBuilder.Entity("EntityLayer.Concrete.TransportMarka", b =>
                 {
-                    b.Navigation("CarCustomers");
+                    b.Navigation("Children");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.TransportMotor", b =>
+                {
+                    b.Navigation("Transports");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.TransportNumberSeats", b =>
+                {
+                    b.Navigation("Cars");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.TransportYear", b =>
+                {
+                    b.Navigation("Transports");
                 });
 #pragma warning restore 612, 618
         }

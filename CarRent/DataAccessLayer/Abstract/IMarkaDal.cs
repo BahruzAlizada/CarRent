@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IMarkaDal : IGenericDal<Marka>
+    public interface IMarkaDal : IGenericDal<TransportMarka>
     {
+        Task<List<TransportMarka>> GetMarkaListAsync();
         Task Activity(int? id);
     }
 }

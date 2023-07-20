@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    public class Ban
+    public class TransportYear
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public List<Car> Cars { get; set; }
-        public bool IsDeactive { get; set; }
+        public int Year { get; set; }
+        public List<Transport> Transports { get; set; }
     }
 }

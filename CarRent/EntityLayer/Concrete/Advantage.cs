@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    internal class Advantage
+    public class Advantage
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public List<TransportAdvantage> CarAdvantages { get; set; }
+        public bool IsDeactive { get; set; }
     }
 }

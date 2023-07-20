@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    public class Marka
+    public class TransportMarka
     {
         public int Id { get; set; }
         public string MarkaName { get; set; }
         public bool IsMain { get; set; }
-        public List<Marka> Children { get; set; }
-        public Marka Parent { get; set; }
-        public int ParentId { get; set; }
-        public List<Car> Cars;
+        public List<TransportMarka> Children { get; set; }
+        public TransportMarka Parent { get; set; }
+        public int? ParentId { get; set; }
+        public List<Transport> Transports;
         public bool IsDeactive { get; set; }
     }
 }

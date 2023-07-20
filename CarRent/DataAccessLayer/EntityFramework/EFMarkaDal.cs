@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EntityFramework
 {
-    public class EFMarkaDal : GenericRepository<Marka>, IMarkaDal
+    public class EFMarkaDal : GenericRepository<TransportMarka>, IMarkaDal
     {
         public async Task Activity(int? id)
         {
@@ -20,7 +20,7 @@ namespace DataAccessLayer.EntityFramework
 
             if (id == null)
                 return;
-            Marka marka = await c.Markas.FirstOrDefaultAsync(x=>x.Id == id);
+            TransportMarka marka = await c.TransportMarkas.FirstOrDefaultAsync(x=>x.Id == id);
             if(marka == null)
                 return;
                
@@ -29,6 +29,12 @@ namespace DataAccessLayer.EntityFramework
             else
                 marka.IsDeactive = true;
             await c.SaveChangesAsync();
+        }
+
+        public async Task<List<TransportMarka>> GetMarkaListAsync()
+        {
+            using var c = new Context();
+            return await c.Set<TransportMarka>().Include(x=>x.Children).ToListAsync();
         }
     }
 }

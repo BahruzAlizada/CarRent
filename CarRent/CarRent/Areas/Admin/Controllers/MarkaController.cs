@@ -3,6 +3,7 @@ using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace CarRent.Areas.Admin.Controllers
@@ -19,22 +20,33 @@ namespace CarRent.Areas.Admin.Controllers
         #region Index
         public async Task<IActionResult> Index()
         {
-            List<Marka> marka = await _markaService.TGetListAsync();
-            return View(marka);
+            List<TransportMarka> marka = await _markaService.TGetMarkaListAsync();
+            List<TransportMarka> markalimit = marka.Where(x=>x.IsMain).ToList();
+            return View(markalimit);
         }
         #endregion
 
         #region Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var parentMarka = await _markaService.TGetListAsync();
+            ViewBag.ParentMarka = parentMarka.Where(x => x.IsMain).ToList();
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public async Task<IActionResult> Create(Marka marka)
+        public async Task<IActionResult> Create(TransportMarka marka,int? markaId)
         {
+            var parentMarka = await _markaService.TGetListAsync();
+            ViewBag.ParentMarka = parentMarka.Where(x => x.IsMain).ToList();
+
+            if(!marka.IsMain)
+            {
+                marka.ParentId = markaId;
+            }
+
             await _markaService.TAddAsync(marka);
             return RedirectToAction("Index");
         }
@@ -43,7 +55,7 @@ namespace CarRent.Areas.Admin.Controllers
         #region Update
         public async Task<IActionResult> Update(int id)
         {
-            Marka dbmarka = await _markaService.TGetByIdAsync(id);
+            TransportMarka dbmarka = await _markaService.TGetByIdAsync(id);
             if (dbmarka == null)
                 return BadRequest();
 
@@ -53,9 +65,9 @@ namespace CarRent.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public async Task<IActionResult> Update(int id,Marka marka)
+        public async Task<IActionResult> Update(int id, TransportMarka marka)
         {
-            Marka dbmarka = await _markaService.TGetByIdAsync(id);
+            TransportMarka dbmarka = await _markaService.TGetByIdAsync(id);
             if (dbmarka == null)
                 return BadRequest();
 
@@ -69,7 +81,7 @@ namespace CarRent.Areas.Admin.Controllers
         #region Activity
         public async Task<IActionResult> Activity(int? id)
         {
-            await _markaService.TActivity(id); 
+            await _markaService.TActivity(id);
             return RedirectToAction("Index");
         }
         #endregion

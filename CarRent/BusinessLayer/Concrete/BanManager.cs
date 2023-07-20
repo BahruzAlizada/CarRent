@@ -22,32 +22,32 @@ namespace BusinessLayer.Concrete
             await _banDal.Activity(id);
         }
 
-        public async Task TAddAsync(Ban item)
+        public async Task TAddAsync(TransportBan item)
         {
             await _banDal.InsertAsync(item);
         }
 
-        public void TDelete(Ban item)
+        public void TDelete(TransportBan item)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<Ban> TGetByIdAsync(int id)
+        public async Task<TransportBan> TGetByIdAsync(int id)
         {
             return await _banDal.GetByIdAsync(id);
         }
 
-        public async Task<List<Ban>> TGetListAsync()
+        public async Task<List<TransportBan>> TGetListAsync()
         {
             return await _banDal.GetListAsync();
         }
 
-        public Task<Ban> TGetOneNoFilterAsync()
+        public Task<TransportBan> TGetOneNoFilterAsync()
         {
             throw new NotImplementedException();
         }
 
-        public async Task TUpdateAsync(Ban item)
+        public async Task TUpdateAsync(TransportBan item)
         {
             await _banDal.UpdateAsync(item);
         }

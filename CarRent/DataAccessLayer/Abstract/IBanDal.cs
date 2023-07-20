@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IBanDal : IGenericDal<Ban>
+    public interface IBanDal : IGenericDal<TransportBan>
     {
         Task Activity(int? id);
     }

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface ICarDal : IGenericDal<Car>
+    public interface ICarDal : IGenericDal<Transport>
     {
-        Task<Car> CarDetailAsync(int? id);
-        Task<List<Car>> GetCarListAsync();
+        Task<Transport> CarDetailAsync(int? id);
+        Task<List<Transport>> GetCarListAsync();
     }
 }

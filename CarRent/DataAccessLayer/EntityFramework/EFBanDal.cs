@@ -11,13 +11,13 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EntityFramework
 {
-    public class EFBanDal : GenericRepository<Ban>, IBanDal
+    public class EFBanDal : GenericRepository<TransportBan>, IBanDal
     {
         public async Task Activity(int? id)
         {
             using var c = new Context();
             if (id == null) return;
-            Ban ban = await c.Bans.FirstOrDefaultAsync(x => x.Id == id);
+            TransportBan ban = await c.TransportBans.FirstOrDefaultAsync(x => x.Id == id);
             if (ban == null) return;
 
             if (ban.IsDeactive)

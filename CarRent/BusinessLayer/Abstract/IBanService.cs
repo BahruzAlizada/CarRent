@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface IBanService : IGenericService<Ban>
+    public interface IBanService : IGenericService<TransportBan>
     {
         Task TActivity(int? id);
     }

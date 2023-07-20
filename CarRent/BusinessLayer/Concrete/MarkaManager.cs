@@ -22,32 +22,37 @@ namespace BusinessLayer.Concrete
             await _markaDal.Activity(id);
         }
 
-        public async Task TAddAsync(Marka item)
+        public async Task TAddAsync(TransportMarka item)
         {
             await _markaDal.InsertAsync(item);
         }
 
-        public void TDelete(Marka item)
+        public void TDelete(TransportMarka item)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<Marka> TGetByIdAsync(int id)
+        public async Task<TransportMarka> TGetByIdAsync(int id)
         {
             return await _markaDal.GetByIdAsync(id);
         }
 
-        public async Task<List<Marka>> TGetListAsync()
+        public async Task<List<TransportMarka>> TGetListAsync()
         {
             return await _markaDal.GetListAsync();
         }
 
-        public Task<Marka> TGetOneNoFilterAsync()
+        public async Task<List<TransportMarka>> TGetMarkaListAsync()
+        {
+            return await _markaDal.GetMarkaListAsync();
+        }
+
+        public Task<TransportMarka> TGetOneNoFilterAsync()
         {
             throw new NotImplementedException();
         }
 
-        public async Task TUpdateAsync(Marka item)
+        public async Task TUpdateAsync(TransportMarka item)
         {
             await _markaDal.UpdateAsync(item);
         }

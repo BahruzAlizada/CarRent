@@ -1,0 +1,181 @@
+﻿@model Transport
+
+<div class="row">
+    <div class="col-8">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Car</h5>
+
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+
+                    <div class="mb-3 form-group">
+                        <label asp-for="Photos" class="form-label">Photos</label>
+                        <input asp-for="Photos" accept="image/*" class="form-control" />
+                        <span class="text-danger" ></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select Marka</label>
+                        <select class="form-control" id="marka" name="markaId">
+                            @foreach (TransportMarka marka in ViewBag.Markas)
+                            {
+                                <option value="@marka.Id">@marka.MarkaName</option>
+                            }
+                        </select>
+                    </div>
+
+                     <div class="form-group">
+                        <label>Select Model</label>
+                        <select class="form-control" id="model" name="childMarkaId">
+                            @foreach (TransportMarka marka in ViewBag.ChildMarka)
+                            {
+                                <option value="@marka.Id">@marka.MarkaName</option>
+                            }
+                        </select>
+                    </div>
+                   
+
+                    <div class="form-group">
+                        <label>Select Ban</label>
+                        <select class="form-control" name="banId">
+                            @foreach (TransportBan ban in ViewBag.Bans)
+                            {
+                                <option value="@ban.Id">@ban.Name</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="mb-3 form-group">
+                        <label asp-for="KM" class="form-label">KM</label>
+                        <input asp-for="KM" type="number" min="0" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select Year</label>
+                        <select class="form-control" name="yearId">
+                            @foreach (TransportYear year in ViewBag.Years)
+                            {
+                                <option value="@year.Id">@year.Year</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group my-2">
+                        <label>Select Color</label>
+                        <select class="form-control" name="colorId">
+                            @foreach (TransportColor color in ViewBag.Colors)
+                            {
+                                <option value="@color.Id">@color.Color</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group my-2">
+                        <label>Select Motor</label>
+                        <select class="form-control" name="motorId">
+                            @foreach (TransportMotor motor in ViewBag.Motors)
+                            {
+                                <option value="@motor.Id">@motor.Motor</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group my-2">
+                        <label>Select Country</label>
+                        <select class="form-control" name="countryarketId">
+                            @foreach (TransportCountryMarket market in ViewBag.CountryMarket)
+                            {
+                                <option value="@market.Id">@market.Name</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group my-2">
+                        <label>Select Enginee</label>
+                        <select class="form-control" name="engineId">
+                            @foreach (TransportEngine engine in ViewBag.Engines)
+                            {
+                                <option value="@engine.Id">@engine.Name</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group my-2">
+                        <label>Select Number Seats</label>
+                        <select class="form-control" name="seatId">
+                            @foreach (TransportNumberSeats seat in ViewBag.Seats)
+                            {
+                                <option value="@seat.Id">@seat.SeatNumber</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group my-2">
+                        <label>Select Advantage</label>
+                        <select multiple class="form-control" name="advantageId[]">
+                            @foreach (Advantage adv in ViewBag.Advantages)
+                            {
+                                <option  value="@adv.Id">@adv.Name</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="mb-3 form-group">
+                        <label asp-for="DailyPrice" class="form-label">Daily Price</label>
+                        <input asp-for="DailyPrice" type="number" min="0" class="form-control" />
+                    </div>
+
+                    <div class="mb-3 form-group">
+                        <label asp-for="Featured" class="form-label">Featured</label>
+                        <input asp-for="Featured"type="checkbox" />
+                    </div>
+
+                    <div class="mb-3 form-group">
+                        <label asp-for="Automathic">Authomatic</label>
+                        <input type="radio" value="true" asp-for="Automathic" />
+
+                        <label asp-for="Automathic">Mechanic</label>
+                        <input type="radio" value="false" asp-for="Automathic" />
+                    </div>
+
+                    <div class="col-6 form-group">
+                        <label asp-for="IsAccident">Accident</label>
+                        <input type="radio" value="true" asp-for="IsAccident" />
+
+                        <label asp-for="IsAccident">Not Accident</label>
+                        <input type="radio" value="false" asp-for="IsAccident" />
+                    </div>
+
+                    <div class="mb-3 form-group">
+                        <label class="form-label">Description</label>
+                        <textarea asp-for="@Model.TransportDetail.Description" class="form-control"></textarea>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-success">Submit</button>
+                    <a asp-action="Index" class="btn btn-secondary">Go Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+  <script>
+        $(document).on('#change','marka',function(){
+            $.ajax({
+                url:"/Admin/Transport/LoadChild/",
+                type:'get',
+                data:{
+                    "markaId":$("#marka").val()
+                },
+                success:function(res){
+                    $("#marka").empty()
+                    $("#marka").append(res)
+                }
+            })
+        })
+  </script>
+}

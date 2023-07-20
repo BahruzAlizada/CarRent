@@ -1,4 +1,4 @@
-﻿@model Marka
+﻿@model TransportMarka
 
 <div class="row">
     <div class="col-8">
@@ -13,8 +13,22 @@
                         <label asp-for="MarkaName" class="form-label">Marka Name</label>
                         <input asp-for="MarkaName" class="form-control"/>
                     </div>
-                  
-                    
+
+                    <div  class="mb-3 form-group my-2">
+                        <label class="form-label">Main</label>
+                        <input id="check" asp-for="IsMain" type="checkbox" />
+                    </div>
+
+                    <div id="MarkaBox" class="form-group my-3">
+                        <label>Select Main Marka</label>
+                        <select class="form-control" name="markaId">
+                            @foreach (TransportMarka marka in ViewBag.ParentMarka)
+                            {
+                                <option value="@marka.Id">@marka.MarkaName</option>
+                            }
+                        </select>
+                    </div>
+
                     <button type="submit" class="btn btn-success">Submit</button>
                     <a asp-action="Index" class="btn btn-secondary">Go Back</a>
                 </form>
@@ -22,3 +36,25 @@
         </div>
     </div>
 </div>
+
+@section Scripts{
+    <script asp-append-version="true">
+        if ($("#check").prop('checked')) {
+
+            $("#MarkaBox").addClass("d-none")
+        }
+        else {
+
+            $("#MarkaBox").removeClass("d-none")
+        }
+
+        $(document).on("change", "#check", function () {
+            if ($("#check").prop('checked')) {
+                $("#MarkaBox").addClass("d-none")
+            }
+            else {
+                $("#MarkaBox").removeClass("d-none")
+            }
+        });
+    </script>
+}

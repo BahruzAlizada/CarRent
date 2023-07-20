@@ -1,4 +1,4 @@
-﻿@model List<Marka>
+﻿@model List<TransportMarka>
 
 <hr class="my-5" />
 
@@ -18,17 +18,28 @@
                 <thead>
                     <tr>
                         <th>Name</th>
+                        <td>Children</td>
                         <th>Status</th>
                         <th style="text-align:right">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (Marka item in Model)
+                    @foreach (TransportMarka item in Model)
                     {
                         <tr>
                             <td>
                                 <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>@item.MarkaName</strong>
                             </td>
+                            <td>
+                                @foreach (TransportMarka child in item.Children)
+                                {
+                                    <ul>
+                                        <li style="list-style:none;"><a asp-action="Update" asp-route-id="@item.Id">@child.MarkaName</a></li>
+                                    </ul>
+                                }
+                                
+                            </td>
+                          
                             <td>
                                 @if (item.IsDeactive)
                                 {

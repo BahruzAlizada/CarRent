@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface ICarService : IGenericService<Car>
+    public interface ICarService : IGenericService<Transport>
     {
-        Task<Car> TCarDetailAsync(int? id);
-        Task<List<Car>> TGetCarListAsync();
+        Task<Transport> TCarDetailAsync(int? id);
+        Task<List<Transport>> TGetCarListAsync();
     }
 }

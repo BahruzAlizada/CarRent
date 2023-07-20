@@ -18,7 +18,7 @@ namespace CarRent.Areas.Admin.Controllers
         #region Index
         public async Task<IActionResult> Index()
         {
-            List<Ban> bans = await _banService.TGetListAsync();
+            List<TransportBan> bans = await _banService.TGetListAsync();
             return View(bans);
         }
         #endregion
@@ -32,7 +32,7 @@ namespace CarRent.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public async Task<IActionResult> Create(Ban ban)
+        public async Task<IActionResult> Create(TransportBan ban)
         {
             await _banService.TAddAsync(ban);
             return RedirectToAction("Index");
@@ -42,7 +42,7 @@ namespace CarRent.Areas.Admin.Controllers
         #region Update
         public async Task<IActionResult> Update(int id)
         {
-            Ban dbban = await _banService.TGetByIdAsync(id);
+            TransportBan dbban = await _banService.TGetByIdAsync(id);
             if (dbban == null)
                 return BadRequest();
 
@@ -52,9 +52,9 @@ namespace CarRent.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public async Task<IActionResult> Update(int id,Ban ban)
+        public async Task<IActionResult> Update(int id, TransportBan ban)
         {
-            Ban dbban = await _banService.TGetByIdAsync(id);
+            TransportBan dbban = await _banService.TGetByIdAsync(id);
             if (dbban == null)
                 return BadRequest();
 

@@ -1,4 +1,4 @@
-﻿@model List<Car>
+﻿@model List<Transport>
 
 <hr class="my-5" />
 
@@ -29,24 +29,24 @@
                     </tr> 
                 </thead>
                 <tbody>
-                    @foreach (Car item in Model)
+                    @foreach (Transport item in Model)
                     {
                         <tr>
                             <td>
-                                 <img src="~/img/@item.CarImages[0].Image" style="height:90px;width:190px;object-fit:cover;">
+                                 <img src="~/img/@item.TransportImages[0].Image" style="height:90px;width:190px;object-fit:cover;">
                             </td>
-                            <td>@item.Marka.MarkaName</td>
-                            <td>@item.Name</td>
-                            <td>@item.Ban.Name</td>
-                            <td>@item.Year</td>
+                            <td>@item.TransportMarka.MarkaName</td>
+                            <td>@item.TransportMarka.Children</td>
+                            <td>@item.TransportBan.Name</td>
+                            <td>@item.TransportYear.Year</td>
                             <td>
                                 @if(item.Automathic==true){<span style="background-color:green;color:white;padding:6px 4px;">Authomatic</span>}
                                 else{<span style="background-color:red;color:white;padding:6px 4px;">Mechanic</span>}
                             </td>
-                            <td>
+                            @*<td>
                                 @if(item.Benzin){<span style="background-color:green;color:white;padding:6px 4px;">Benzin</span>}
                                 else{<span style="background-color:red;color:white;padding:6px 4px;">Diesel</span>}
-                            </td>
+                            </td>*@
                             <td>
                                 @if (item.IsDeactive)
                                 {

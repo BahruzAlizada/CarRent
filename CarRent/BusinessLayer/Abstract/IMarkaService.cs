@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface IMarkaService : IGenericService<Marka>
+    public interface IMarkaService : IGenericService<TransportMarka>
     {
+        Task<List<TransportMarka>>TGetMarkaListAsync();
         Task TActivity(int? id);
     }
 }

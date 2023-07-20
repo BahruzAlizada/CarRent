@@ -16,42 +16,42 @@ namespace BusinessLayer.Concrete
         {
             _carDal = carDal;
         }
-        public async Task TAddAsync(Car item)
+        public async Task TAddAsync(Transport item)
         {
             await _carDal.InsertAsync(item);
         }
 
-        public Task<Car> TCarDetailAsync(int? id)
+        public Task<Transport> TCarDetailAsync(int? id)
         {
             throw new NotImplementedException();
         }
 
-        public void TDelete(Car item)
+        public void TDelete(Transport item)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Car> TGetByIdAsync(int id)
+        public Task<Transport> TGetByIdAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<List<Car>> TGetCarListAsync()
+        public async Task<List<Transport>> TGetCarListAsync()
         {
             return await _carDal.GetCarListAsync();
         }
 
-        public Task<List<Car>> TGetListAsync()
+        public Task<List<Transport>> TGetListAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<Car> TGetOneNoFilterAsync()
+        public Task<Transport> TGetOneNoFilterAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task TUpdateAsync(Car item)
+        public Task TUpdateAsync(Transport item)
         {
             throw new NotImplementedException();
         }
